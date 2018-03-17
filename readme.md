@@ -1,5 +1,7 @@
 # sbee - Simple Buffered Event Emitter
 
+[![Build Status](https://travis-ci.org/beeblebrox3/sbee.svg?branch=master)](https://travis-ci.org/beeblebrox3/sbee)
+
 > WIP
 
 This project is a simple implementation of a event emitter, but with one particularity: you can create buffers to only emit the events when some condition occurs.
