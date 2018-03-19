@@ -129,7 +129,7 @@ class BufferedEventEmitter {
      * Remove all data from the buffer. Just the global clean buffer event will be emitted
      * @param {Number|String} bufferId
      */
-    clearBuffer(bufferId) {
+    cleanBuffer(bufferId) {
         this._log(`Cleaning buffer ${bufferId}`);
         const buffer = this._getBuffer(bufferId, true);
 
@@ -301,7 +301,7 @@ class BufferedEventEmitter {
             const seconds = Math.abs(diff / 1000);
 
             if (seconds > BUFFER_RETENTION_PERIOD_SECONDS) {
-                this.clearBuffer(id);
+                this.cleanBuffer(id);
             }
         });
     }
@@ -314,6 +314,9 @@ class BufferedEventEmitter {
     _log(message) {
         this._log && console.log(message);
     }
-}
+};
+
+BufferedEventEmitter.FLUSH_BUFFER_EVENT_NAME = FLUSH_BUFFER_EVENT_NAME;
+BufferedEventEmitter.CLEAN_BUFFER_EVENT_NAME = CLEAN_BUFFER_EVENT_NAME;
 
 module.exports = BufferedEventEmitter;

@@ -38,6 +38,6 @@ instance.emitBuffered("my buffer", "the-event", {the: "data2"});
 instance.flush("my buffer"); // wil lcal the handler 2 times, cause we emitted 2 events
 
 // You can delete all the events too
-instance.clearBuffer("my buffer");
+instance.cleanBuffer("my buffer");
 ```
 

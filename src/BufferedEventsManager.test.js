@@ -28,7 +28,7 @@ test('clean event', () => {
     instance.createBuffer(id, {name: "Buffer 1"});
     instance.emitBuffered(id, "foo", {event: "foo"});
     instance.emitBuffered(id, "foo", {event: "bar"});
-    instance.clearBuffer(id);
+    instance.cleanBuffer(id);
 
     expect(handler.mock.calls.length).toBe(1);
     expect(handler.mock.calls[0][0]).toBe(id);
@@ -108,7 +108,7 @@ test('should validate inexistent buffer calls', () => {
 
     expect(() => instance.emitBuffered(1, "foo", "bar")).toThrow("BUFFER NOT FOUND");
     expect(() => instance.flush(1)).toThrow('BUFFER NOT FOUND');
-    expect(() => instance.clearBuffer(1)).toThrow('BUFFER NOT FOUND');
+    expect(() => instance.cleanBuffer(1)).toThrow('BUFFER NOT FOUND');
 });
 
 test('subscribe/unsubscribe', () => {
